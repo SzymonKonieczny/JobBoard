@@ -13,7 +13,7 @@
         <form asp-action="Add">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                @using (Html.BeginForm("Add", "JobOffers", FormMethod.Post))
+                @using (Html.BeginForm("Add", "JobOffers", FormMethod.Post, new { enctype="multipart/form-data" }))
                 {
                     @Html.ValidationSummary()
 
@@ -21,10 +21,22 @@
                     <br>
                     <span>Descripton:</span> @Html.TextAreaFor(x => x.Description,10,150,new {})
                     <br>
-                    <span>Tags (To be added) </span>
+                    <span>Tags (Not functional yet) </span>
                     <br>
+                    
+                        
+                    <tr dir="ltr">
+                    @for (int i = 0; i < ((List<Tag>)Html.ViewData["Tags"]).Count;i++)
+                    {
+                        <td>
+                        @Html.CheckBoxFor(x => ((List<bool>)Html.TempData["TagsSelected"])[i])
+                        @(((List<Tag>)Html.ViewData["Tags"])[i].Name)
+                        </td>
 
-                        <input type="submit" value="Create" class="btn btn-primary" />
+                    }
+                    </tr>
+                    <br />
+                    <input type="submit" value="Create" class="btn btn-primary" />
 
                 }
             </div>

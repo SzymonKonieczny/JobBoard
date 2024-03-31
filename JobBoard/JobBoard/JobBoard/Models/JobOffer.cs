@@ -12,6 +12,10 @@ namespace JobBoard.Models
 
         public int Id { get; set; }
         public string Name { get; set; }
+        public Tag(string name)
+        {
+            Name = name;
+        }
     }
     public class SearchOptions
     {
@@ -19,6 +23,7 @@ namespace JobBoard.Models
     }
     public class JobOffer
     {
+        
         [Key]
         public int Id { get; set; }
 

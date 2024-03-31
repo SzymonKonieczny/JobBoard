@@ -34,11 +34,23 @@ namespace JobBoard.Services
 
             return offer.Id;
         }
+        public int AddTag(Tag tag)
+        {
+            DbContext.Add(tag);
+            if (DbContext.SaveChanges() > 0)
+            {
+                //succesful
+            }
 
+            return tag.Id;
+        }
         public List<JobOffer> GetOffers(SearchOptions options)
         {
            return DbContext.Offers.ToList();
         }
-
+        public List<Tag> GetTags(SearchOptions options)
+        {
+            return DbContext.Tags.ToList();
+        }
     }
 }

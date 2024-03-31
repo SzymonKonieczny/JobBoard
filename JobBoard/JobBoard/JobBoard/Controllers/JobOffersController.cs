@@ -22,6 +22,11 @@ namespace JobBoard.Controllers
         }
         public ActionResult Add()
         {
+            var Tags = _IDbService.GetTags(new SearchOptions());
+            ViewData["Tags"] = Tags;
+
+            var TagsSelected = new List<bool>(new bool[Tags.Count]);
+            TempData["TagsSelected"] = TagsSelected;
             return View();
         }
 
@@ -30,6 +35,16 @@ namespace JobBoard.Controllers
         {
             try
             {
+                var TagsSelected = (List<bool>)TempData["TagsSelected"];
+                var Tags  =_IDbService.GetTags(new SearchOptions());
+                offer.Tags.Clear();
+                if (TagsSelected != null)
+                {
+                    for (int i = 0; i < TagsSelected.Count; i++)
+                    {
+                        if (TagsSelected[i]) offer.Tags.Add(Tags[i]);
+                    }
+                }
                 _IDbService.AddOffer(offer);
 
                 return RedirectToAction("Browse");
@@ -52,7 +67,16 @@ namespace JobBoard.Controllers
 
 
 
-
+        public ActionResult AddTags()
+        {
+            _IDbService.AddTag(new Tag("Tag1"));
+            _IDbService.AddTag(new Tag("Tag2"));
+            _IDbService.AddTag(new Tag("Tag3"));
+            _IDbService.AddTag(new Tag("Tag4"));
+            _IDbService.AddTag(new Tag("Tag5"));
+            _IDbService.AddTag(new Tag("Tag6"));
+            return RedirectToAction("Browse");
+        }
 
         public ActionResult Edit(int id)
         {
