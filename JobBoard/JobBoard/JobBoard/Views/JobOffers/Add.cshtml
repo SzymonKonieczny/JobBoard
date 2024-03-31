@@ -1,0 +1,41 @@
+﻿@model JobBoard.Models.JobOffer
+
+@{
+    ViewData["Title"] = "Add";
+}
+
+<h1>Add</h1>
+
+<h4>JobOffer</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Add">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                @using (Html.BeginForm("Add", "JobOffers", FormMethod.Post))
+                {
+                    @Html.ValidationSummary()
+
+                    <span>Title:</span> @Html.TextBoxFor(x => x.Title)
+                    <br>
+                    <span>Descripton:</span> @Html.TextAreaFor(x => x.Description,10,150,new {})
+                    <br>
+                    <span>Tags (To be added) </span>
+                    <br>
+
+                        <input type="submit" value="Create" class="btn btn-primary" />
+
+                }
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Browse">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

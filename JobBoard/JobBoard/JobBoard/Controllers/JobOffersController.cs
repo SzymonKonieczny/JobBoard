@@ -8,8 +8,8 @@ namespace JobBoard.Controllers
 {
     public class JobOffersController : Controller
     {
-        IJobOfferFetcher _OfferFetcher;
-        public JobOffersController(IJobOfferFetcher OfferFetcher) => _OfferFetcher = OfferFetcher;
+        IDbService _IDbService;
+        public JobOffersController(IDbService IDbService) => _IDbService = IDbService;
         // GET: JobOffers
         public ActionResult Index()
         {
@@ -18,11 +18,11 @@ namespace JobBoard.Controllers
 
         public ActionResult Browse()
         {
-            return View(_OfferFetcher.GetOffers(new SearchOptions()));
+            return View(_IDbService.GetOffers(new SearchOptions()));
         }
         public ActionResult Add()
         {
-            return View( );
+            return View();
         }
 
         [HttpPost]
@@ -30,9 +30,9 @@ namespace JobBoard.Controllers
         {
             try
             {
-                // TODO: Add update logic here
+                _IDbService.AddOffer(offer);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Browse");
             }
             catch
             {
@@ -40,7 +40,15 @@ namespace JobBoard.Controllers
             }
         }
 
+        public ActionResult Delete(int id)
+        {
+            DbServiceActionStatus resState = _IDbService.DeleteOffer(id);
 
+            //TempData["FromDeleteAction?"] = true;
+            TempData["WasSuccess?"] = resState;
+
+            return RedirectToAction("Browse");
+        }
 
 
 

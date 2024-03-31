@@ -3,40 +3,28 @@
   "WorkspaceRootPath": "C:\\Projects on C drive Only Imortant shit\\ASP Project\\JobBoardSite Proj\\JobBoard\\JobBoard\\JobBoard\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{084F2B51-00DA-4687-A3CE-B92307936B19}|JobBoard\\JobBoard.csproj|c:\\projects on c drive only imortant shit\\asp project\\jobboardsite proj\\jobboard\\jobboard\\jobboard\\jobboard\\views\\joboffers\\browse.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{084F2B51-00DA-4687-A3CE-B92307936B19}|JobBoard\\JobBoard.csproj|solutionrelative:jobboard\\views\\joboffers\\browse.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{084F2B51-00DA-4687-A3CE-B92307936B19}|JobBoard\\JobBoard.csproj|c:\\projects on c drive only imortant shit\\asp project\\jobboardsite proj\\jobboard\\jobboard\\jobboard\\jobboard\\controllers\\jobofferscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{084F2B51-00DA-4687-A3CE-B92307936B19}|JobBoard\\JobBoard.csproj|solutionrelative:jobboard\\controllers\\jobofferscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{084F2B51-00DA-4687-A3CE-B92307936B19}|JobBoard\\JobBoard.csproj|c:\\projects on c drive only imortant shit\\asp project\\jobboardsite proj\\jobboard\\jobboard\\jobboard\\jobboard\\services\\ijobofferfetcher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{084F2B51-00DA-4687-A3CE-B92307936B19}|JobBoard\\JobBoard.csproj|solutionrelative:jobboard\\services\\ijobofferfetcher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{084F2B51-00DA-4687-A3CE-B92307936B19}|JobBoard\\JobBoard.csproj|c:\\projects on c drive only imortant shit\\asp project\\jobboardsite proj\\jobboard\\jobboard\\jobboard\\jobboard\\services\\dbservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{084F2B51-00DA-4687-A3CE-B92307936B19}|JobBoard\\JobBoard.csproj|solutionrelative:jobboard\\services\\dbservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{084F2B51-00DA-4687-A3CE-B92307936B19}|JobBoard\\JobBoard.csproj|c:\\projects on c drive only imortant shit\\asp project\\jobboardsite proj\\jobboard\\jobboard\\jobboard\\jobboard\\models\\joboffer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{084F2B51-00DA-4687-A3CE-B92307936B19}|JobBoard\\JobBoard.csproj|solutionrelative:jobboard\\models\\joboffer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{084F2B51-00DA-4687-A3CE-B92307936B19}|JobBoard\\JobBoard.csproj|c:\\projects on c drive only imortant shit\\asp project\\jobboardsite proj\\jobboard\\jobboard\\jobboard\\jobboard\\views\\joboffers\\browse.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{084F2B51-00DA-4687-A3CE-B92307936B19}|JobBoard\\JobBoard.csproj|solutionrelative:jobboard\\views\\joboffers\\browse.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{084F2B51-00DA-4687-A3CE-B92307936B19}|JobBoard\\JobBoard.csproj|c:\\projects on c drive only imortant shit\\asp project\\jobboardsite proj\\jobboard\\jobboard\\jobboard\\jobboard\\views\\joboffers\\add.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{084F2B51-00DA-4687-A3CE-B92307936B19}|JobBoard\\JobBoard.csproj|solutionrelative:jobboard\\views\\joboffers\\add.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{084F2B51-00DA-4687-A3CE-B92307936B19}|JobBoard\\JobBoard.csproj|c:\\projects on c drive only imortant shit\\asp project\\jobboardsite proj\\jobboard\\jobboard\\jobboard\\jobboard\\services\\temporaryjobofferfetcher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{084F2B51-00DA-4687-A3CE-B92307936B19}|JobBoard\\JobBoard.csproj|solutionrelative:jobboard\\services\\temporaryjobofferfetcher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{084F2B51-00DA-4687-A3CE-B92307936B19}|JobBoard\\JobBoard.csproj|c:\\projects on c drive only imortant shit\\asp project\\jobboardsite proj\\jobboard\\jobboard\\jobboard\\jobboard\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{084F2B51-00DA-4687-A3CE-B92307936B19}|JobBoard\\JobBoard.csproj|solutionrelative:jobboard\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{084F2B51-00DA-4687-A3CE-B92307936B19}|JobBoard\\JobBoard.csproj|c:\\projects on c drive only imortant shit\\asp project\\jobboardsite proj\\jobboard\\jobboard\\jobboard\\jobboard\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{084F2B51-00DA-4687-A3CE-B92307936B19}|JobBoard\\JobBoard.csproj|solutionrelative:jobboard\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{084F2B51-00DA-4687-A3CE-B92307936B19}|JobBoard\\JobBoard.csproj|c:\\projects on c drive only imortant shit\\asp project\\jobboardsite proj\\jobboard\\jobboard\\jobboard\\jobboard\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{084F2B51-00DA-4687-A3CE-B92307936B19}|JobBoard\\JobBoard.csproj|solutionrelative:jobboard\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{084F2B51-00DA-4687-A3CE-B92307936B19}|JobBoard\\JobBoard.csproj|c:\\projects on c drive only imortant shit\\asp project\\jobboardsite proj\\jobboard\\jobboard\\jobboard\\jobboard\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{084F2B51-00DA-4687-A3CE-B92307936B19}|JobBoard\\JobBoard.csproj|solutionrelative:jobboard\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{084F2B51-00DA-4687-A3CE-B92307936B19}|JobBoard\\JobBoard.csproj|c:\\projects on c drive only imortant shit\\asp project\\jobboardsite proj\\jobboard\\jobboard\\jobboard\\jobboard\\services\\idbservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{084F2B51-00DA-4687-A3CE-B92307936B19}|JobBoard\\JobBoard.csproj|solutionrelative:jobboard\\services\\idbservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,123 +34,84 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Projects on C drive Only Imortant shit\\ASP Project\\JobBoardSite Proj\\JobBoard\\JobBoard\\JobBoard\\JobBoard\\Program.cs",
-              "RelativeDocumentMoniker": "JobBoard\\Program.cs",
-              "ToolTip": "C:\\Projects on C drive Only Imortant shit\\ASP Project\\JobBoardSite Proj\\JobBoard\\JobBoard\\JobBoard\\JobBoard\\Program.cs",
-              "RelativeToolTip": "JobBoard\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAArAAAA",
+              "Title": "IDbService.cs",
+              "DocumentMoniker": "C:\\Projects on C drive Only Imortant shit\\ASP Project\\JobBoardSite Proj\\JobBoard\\JobBoard\\JobBoard\\JobBoard\\Services\\IDbService.cs",
+              "RelativeDocumentMoniker": "JobBoard\\Services\\IDbService.cs",
+              "ToolTip": "C:\\Projects on C drive Only Imortant shit\\ASP Project\\JobBoardSite Proj\\JobBoard\\JobBoard\\JobBoard\\JobBoard\\Services\\IDbService.cs",
+              "RelativeToolTip": "JobBoard\\Services\\IDbService.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAIAzwBUAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T12:02:32.709Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Browse.cshtml",
-              "DocumentMoniker": "C:\\Projects on C drive Only Imortant shit\\ASP Project\\JobBoardSite Proj\\JobBoard\\JobBoard\\JobBoard\\JobBoard\\Views\\JobOffers\\Browse.cshtml",
-              "RelativeDocumentMoniker": "JobBoard\\Views\\JobOffers\\Browse.cshtml",
-              "ToolTip": "C:\\Projects on C drive Only Imortant shit\\ASP Project\\JobBoardSite Proj\\JobBoard\\JobBoard\\JobBoard\\JobBoard\\Views\\JobOffers\\Browse.cshtml",
-              "RelativeToolTip": "JobBoard\\Views\\JobOffers\\Browse.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAArAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-03-31T12:00:44.082Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "TemporaryJobOfferFetcher.cs",
-              "DocumentMoniker": "C:\\Projects on C drive Only Imortant shit\\ASP Project\\JobBoardSite Proj\\JobBoard\\JobBoard\\JobBoard\\JobBoard\\Services\\TemporaryJobOfferFetcher.cs",
-              "RelativeDocumentMoniker": "JobBoard\\Services\\TemporaryJobOfferFetcher.cs",
-              "ToolTip": "C:\\Projects on C drive Only Imortant shit\\ASP Project\\JobBoardSite Proj\\JobBoard\\JobBoard\\JobBoard\\JobBoard\\Services\\TemporaryJobOfferFetcher.cs",
-              "RelativeToolTip": "JobBoard\\Services\\TemporaryJobOfferFetcher.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAZAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T11:58:16.604Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "IJobOfferFetcher.cs",
-              "DocumentMoniker": "C:\\Projects on C drive Only Imortant shit\\ASP Project\\JobBoardSite Proj\\JobBoard\\JobBoard\\JobBoard\\JobBoard\\Services\\IJobOfferFetcher.cs",
-              "RelativeDocumentMoniker": "JobBoard\\Services\\IJobOfferFetcher.cs",
-              "ToolTip": "C:\\Projects on C drive Only Imortant shit\\ASP Project\\JobBoardSite Proj\\JobBoard\\JobBoard\\JobBoard\\JobBoard\\Services\\IJobOfferFetcher.cs",
-              "RelativeToolTip": "JobBoard\\Services\\IJobOfferFetcher.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAsAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T11:58:12.965Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Projects on C drive Only Imortant shit\\ASP Project\\JobBoardSite Proj\\JobBoard\\JobBoard\\JobBoard\\JobBoard\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "JobBoard\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Projects on C drive Only Imortant shit\\ASP Project\\JobBoardSite Proj\\JobBoard\\JobBoard\\JobBoard\\JobBoard\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "JobBoard\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABEAAAA9AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-03-31T11:57:15.004Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "JobOffersController.cs",
-              "DocumentMoniker": "C:\\Projects on C drive Only Imortant shit\\ASP Project\\JobBoardSite Proj\\JobBoard\\JobBoard\\JobBoard\\JobBoard\\Controllers\\JobOffersController.cs",
-              "RelativeDocumentMoniker": "JobBoard\\Controllers\\JobOffersController.cs",
-              "ToolTip": "C:\\Projects on C drive Only Imortant shit\\ASP Project\\JobBoardSite Proj\\JobBoard\\JobBoard\\JobBoard\\JobBoard\\Controllers\\JobOffersController.cs",
-              "RelativeToolTip": "JobBoard\\Controllers\\JobOffersController.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAQwBIAAAAkAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T11:55:37.663Z",
+              "WhenOpened": "2024-03-31T19:24:13.028Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "DbService.cs",
+              "DocumentMoniker": "C:\\Projects on C drive Only Imortant shit\\ASP Project\\JobBoardSite Proj\\JobBoard\\JobBoard\\JobBoard\\JobBoard\\Services\\DbService.cs",
+              "RelativeDocumentMoniker": "JobBoard\\Services\\DbService.cs",
+              "ToolTip": "C:\\Projects on C drive Only Imortant shit\\ASP Project\\JobBoardSite Proj\\JobBoard\\JobBoard\\JobBoard\\JobBoard\\Services\\DbService.cs",
+              "RelativeToolTip": "JobBoard\\Services\\DbService.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAQwA0AAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-31T19:06:16.506Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "JobOffer.cs",
               "DocumentMoniker": "C:\\Projects on C drive Only Imortant shit\\ASP Project\\JobBoardSite Proj\\JobBoard\\JobBoard\\JobBoard\\JobBoard\\Models\\JobOffer.cs",
               "RelativeDocumentMoniker": "JobBoard\\Models\\JobOffer.cs",
               "ToolTip": "C:\\Projects on C drive Only Imortant shit\\ASP Project\\JobBoardSite Proj\\JobBoard\\JobBoard\\JobBoard\\JobBoard\\Models\\JobOffer.cs",
               "RelativeToolTip": "JobBoard\\Models\\JobOffer.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAoAAAAFAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T11:55:31.341Z",
+              "WhenOpened": "2024-03-31T19:03:50.939Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Projects on C drive Only Imortant shit\\ASP Project\\JobBoardSite Proj\\JobBoard\\JobBoard\\JobBoard\\JobBoard\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "JobBoard\\Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Projects on C drive Only Imortant shit\\ASP Project\\JobBoardSite Proj\\JobBoard\\JobBoard\\JobBoard\\JobBoard\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "JobBoard\\Controllers\\HomeController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T11:53:39.722Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "_ViewStart.cshtml",
-              "DocumentMoniker": "C:\\Projects on C drive Only Imortant shit\\ASP Project\\JobBoardSite Proj\\JobBoard\\JobBoard\\JobBoard\\JobBoard\\Views\\_ViewStart.cshtml",
-              "RelativeDocumentMoniker": "JobBoard\\Views\\_ViewStart.cshtml",
-              "ToolTip": "C:\\Projects on C drive Only Imortant shit\\ASP Project\\JobBoardSite Proj\\JobBoard\\JobBoard\\JobBoard\\JobBoard\\Views\\_ViewStart.cshtml",
-              "RelativeToolTip": "JobBoard\\Views\\_ViewStart.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentIndex": 0,
+              "Title": "Browse.cshtml",
+              "DocumentMoniker": "C:\\Projects on C drive Only Imortant shit\\ASP Project\\JobBoardSite Proj\\JobBoard\\JobBoard\\JobBoard\\JobBoard\\Views\\JobOffers\\Browse.cshtml",
+              "RelativeDocumentMoniker": "JobBoard\\Views\\JobOffers\\Browse.cshtml",
+              "ToolTip": "C:\\Projects on C drive Only Imortant shit\\ASP Project\\JobBoardSite Proj\\JobBoard\\JobBoard\\JobBoard\\JobBoard\\Views\\JobOffers\\Browse.cshtml",
+              "RelativeToolTip": "JobBoard\\Views\\JobOffers\\Browse.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACcAAAALAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-03-31T11:49:12.895Z",
+              "WhenOpened": "2024-03-31T18:53:37.817Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "JobOffersController.cs",
+              "DocumentMoniker": "C:\\Projects on C drive Only Imortant shit\\ASP Project\\JobBoardSite Proj\\JobBoard\\JobBoard\\JobBoard\\JobBoard\\Controllers\\JobOffersController.cs",
+              "RelativeDocumentMoniker": "JobBoard\\Controllers\\JobOffersController.cs",
+              "ToolTip": "C:\\Projects on C drive Only Imortant shit\\ASP Project\\JobBoardSite Proj\\JobBoard\\JobBoard\\JobBoard\\JobBoard\\Controllers\\JobOffersController.cs",
+              "RelativeToolTip": "JobBoard\\Controllers\\JobOffersController.cs",
+              "ViewState": "AQIAABcAAAAAAAAAAAAIwCwAAABEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-31T18:53:14.251Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Add.cshtml",
+              "DocumentMoniker": "C:\\Projects on C drive Only Imortant shit\\ASP Project\\JobBoardSite Proj\\JobBoard\\JobBoard\\JobBoard\\JobBoard\\Views\\JobOffers\\Add.cshtml",
+              "RelativeDocumentMoniker": "JobBoard\\Views\\JobOffers\\Add.cshtml",
+              "ToolTip": "C:\\Projects on C drive Only Imortant shit\\ASP Project\\JobBoardSite Proj\\JobBoard\\JobBoard\\JobBoard\\JobBoard\\Views\\JobOffers\\Add.cshtml",
+              "RelativeToolTip": "JobBoard\\Views\\JobOffers\\Add.cshtml",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABsAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-31T18:50:46.945Z",
               "EditorCaption": ""
             }
           ]

@@ -1,4 +1,6 @@
+using JobBoard;
 using JobBoard.Services;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,8 +8,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 
-builder.Services.AddScoped<IJobOfferFetcher,TemporaryJobOfferFetcher>();
+builder.Services.AddScoped<IDbService,DbService>();
 
+builder.Services.AddDbContext<DbContextJobBoard>( builder =>
+{
+    builder.UseSqlServer(@"Server=(localdb)\JobBoard;Database=JobBoard;Trusted_Connection=True");
+});
 
 var app = builder.Build();
 

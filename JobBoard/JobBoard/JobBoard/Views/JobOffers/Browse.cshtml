@@ -6,8 +6,25 @@
 
 <h2>Browse</h2>
 
+@if (Html.TempData["WasSuccess?"] != null)
+{
+    <br>
+     @switch (Html.TempData["WasSuccess?"])
+        {
+            case 0:
+                <h3>Success</h3>
+                break;
+
+            case 1:
+                <h3>Failed</h3>
+                break;
+        }
+  
+    <br>
+}
+
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create a new Posting", "Add")
 </p>
 <table class="table">
     <tr>
@@ -17,11 +34,12 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @item.Title
+                <h3>@item.Title</h3>
+                <br>@item.Description
             <br>
             @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
             @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
         </td>
     </tr>
 }
