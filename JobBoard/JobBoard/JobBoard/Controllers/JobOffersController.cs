@@ -1,6 +1,7 @@
 ﻿using JobBoard.Models;
 using JobBoard.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Diagnostics;
 
 
@@ -25,8 +26,11 @@ namespace JobBoard.Controllers
             var Tags = _IDbService.GetTags(new SearchOptions());
             ViewData["Tags"] = Tags;
 
-            var TagsSelected = new List<bool>(new bool[Tags.Count]);
-            TempData["TagsSelected"] = TagsSelected;
+
+
+            //var TagsSelected = new List<bool>(new bool[Tags.Count]);
+            //TempData["TagsSelected"] = TagsSelected;
+            TempData["TagsSelected"] = new SelectList(Tags);
             return View();
         }
 
@@ -35,16 +39,33 @@ namespace JobBoard.Controllers
         {
             try
             {
-                var TagsSelected = (List<bool>)TempData["TagsSelected"];
+                //var TagsSelected = (List<bool>)TempData["TagsSelected"];
                 var Tags  =_IDbService.GetTags(new SearchOptions());
+                //var TagsSelected = (List<SelectList>)ViewData["tags"];
+                //
+                //offer.Tags.Clear();
+                //if (TagsSelected != null)
+                //{
+                //    for (int i = 0; i < TagsSelected.Count; i++)
+                //    {
+                //        if (TagsSelected[i]) offer.Tags.Add(Tags[i]);
+                //    }
+                //}
+
                 offer.Tags.Clear();
-                if (TagsSelected != null)
+                
+                var TagsSelected = (SelectList)ViewData["tags"];
+
+                foreach (Tag tag in TagsSelected.SelectedValues) 
                 {
-                    for (int i = 0; i < TagsSelected.Count; i++)
+                    if(Tags.FindAll(t => t.Id == tag.Id).Count > 0)
                     {
-                        if (TagsSelected[i]) offer.Tags.Add(Tags[i]);
+                        offer.Tags.Add(tag);
                     }
+
                 }
+
+
                 _IDbService.AddOffer(offer);
 
                 return RedirectToAction("Browse");
