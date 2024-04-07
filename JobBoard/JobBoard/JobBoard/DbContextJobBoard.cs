@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace JobBoard
 {
-    public class DbContextJobBoard : IdentityDbContext<IdentityUser>
+    public class DbContextJobBoard : IdentityDbContext<JobBoardAccount>
     {
         public DbSet<JobOffer> Offers { get; set; }
         public DbSet<Tag> Tags { get; set; }

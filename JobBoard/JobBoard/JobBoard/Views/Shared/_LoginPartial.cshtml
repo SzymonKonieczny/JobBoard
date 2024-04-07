@@ -1,7 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using System.Security.Claims
-@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
+@inject SignInManager<JobBoardAccount> SignInManager
+@inject UserManager<JobBoardAccount> UserManager
 
 <ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
@@ -18,7 +18,7 @@
                     // If the user is found, you can cast it to your custom UserIdentity class
                     if (user != null)
                     {
-                        var userIdentity = (IdentityUser)user;
+                        var userIdentity = (JobBoardAccount)user;
                         <a>@user.UserName</a>
                         // Now you have access to properties and methods of the UserIdentity object
                     }

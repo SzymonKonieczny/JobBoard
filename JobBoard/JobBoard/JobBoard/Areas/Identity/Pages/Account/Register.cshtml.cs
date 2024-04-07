@@ -10,6 +10,7 @@ using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading;
 using System.Threading.Tasks;
+using JobBoard.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -23,17 +24,17 @@ namespace JobBoard.Areas.Identity.Pages.Account
 {
     public class RegisterModel : PageModel
     {
-        private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly IUserStore<IdentityUser> _userStore;
-        private readonly IUserEmailStore<IdentityUser> _emailStore;
+        private readonly SignInManager<JobBoardAccount> _signInManager;
+        private readonly UserManager<JobBoardAccount> _userManager;
+        private readonly IUserStore<JobBoardAccount> _userStore;
+        private readonly IUserEmailStore<JobBoardAccount> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
 
         public RegisterModel(
-            UserManager<IdentityUser> userManager,
-            IUserStore<IdentityUser> userStore,
-            SignInManager<IdentityUser> signInManager,
+            UserManager<JobBoardAccount> userManager,
+            IUserStore<JobBoardAccount> userStore,
+            SignInManager<JobBoardAccount> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender)
         {
@@ -102,6 +103,11 @@ namespace JobBoard.Areas.Identity.Pages.Account
             [Display(Name = "USERNAME")]
             public string UserName { get; set; }
 
+            [Required]
+            [Display(Name = "AccoutType")]
+            public AccountType type { get; set; }
+
+
         }
 
 
@@ -118,6 +124,8 @@ namespace JobBoard.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 var user = CreateUser();
+                user.UserName = Input.UserName;
+                user.Type = Input.type;
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
@@ -159,27 +167,27 @@ namespace JobBoard.Areas.Identity.Pages.Account
             return Page();
         }
 
-        private IdentityUser CreateUser()
+        private JobBoardAccount CreateUser()
         {
             try
             {
-                return Activator.CreateInstance<IdentityUser>();
+                return Activator.CreateInstance<JobBoardAccount>();
             }
             catch
             {
-                throw new InvalidOperationException($"Can't create an instance of '{nameof(IdentityUser)}'. " +
-                    $"Ensure that '{nameof(IdentityUser)}' is not an abstract class and has a parameterless constructor, or alternatively " +
+                throw new InvalidOperationException($"Can't create an instance of '{nameof(JobBoardAccount)}'. " +
+                    $"Ensure that '{nameof(JobBoardAccount)}' is not an abstract class and has a parameterless constructor, or alternatively " +
                     $"override the register page in /Areas/Identity/Pages/Account/Register.cshtml");
             }
         }
 
-        private IUserEmailStore<IdentityUser> GetEmailStore()
+        private IUserEmailStore<JobBoardAccount> GetEmailStore()
         {
             if (!_userManager.SupportsUserEmail)
             {
                 throw new NotSupportedException("The default UI requires a user store with email support.");
             }
-            return (IUserEmailStore<IdentityUser>)_userStore;
+            return (IUserEmailStore<JobBoardAccount>)_userStore;
         }
     }
 }

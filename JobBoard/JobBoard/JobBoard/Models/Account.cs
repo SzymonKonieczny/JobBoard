@@ -1,19 +1,15 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
 namespace JobBoard.Models
 {
-    enum AccountType
+   public enum AccountType
     {
         Employer,
         Employee
     }
-    public class Account
+    public class JobBoardAccount : IdentityUser
     {
-        [Key]
-        public int Id { get; set; }
-        public string Name { get; set; }
-
-        public string PasswordHashed { get; set; }
-        AccountType Type { get; set; }
+       public AccountType Type { get; set; }
     }
 }

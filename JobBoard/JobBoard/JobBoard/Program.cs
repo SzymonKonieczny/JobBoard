@@ -3,13 +3,14 @@ using JobBoard.Services;
 using Microsoft.EntityFrameworkCore;
 
 using Microsoft.AspNetCore.Identity;
+using JobBoard.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("JobBoardContextConnection") ?? throw new InvalidOperationException("Connection string 'JobBoardContextConnection' not found.");
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddRazorPages();
 
 builder.Services.AddScoped<IDbService,DbService>();
 
@@ -18,7 +19,7 @@ builder.Services.AddDbContext<DbContextJobBoard>( builder =>
     builder.UseSqlServer(@"Server=(localdb)\JobBoard;Database=JobBoard;Trusted_Connection=True");
 });
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => {
+builder.Services.AddDefaultIdentity<JobBoardAccount>(options => {
     options.SignIn.RequireConfirmedAccount = false;
 
     options.Password.RequiredLength = 3;
@@ -28,9 +29,7 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => {
     options.Password.RequireUppercase = false;
 
     }
-)
-    .AddRoles<IdentityRole>()
-    .AddEntityFrameworkStores<DbContextJobBoard>();
+).AddRoles<IdentityRole>()     .AddEntityFrameworkStores<DbContextJobBoard>().AddDefaultTokenProviders();
 
 var app = builder.Build();
 
