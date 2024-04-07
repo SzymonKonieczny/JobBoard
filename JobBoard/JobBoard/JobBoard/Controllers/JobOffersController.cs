@@ -21,6 +21,10 @@ namespace JobBoard.Controllers
         {
             return View(_IDbService.GetOffers(new SearchOptions()));
         }
+        public ActionResult BrowseOwned()
+        {
+            return View(_IDbService.GetOffers(new SearchOptions()));
+        }
         public ActionResult Add()
         {
             var Tags = _IDbService.GetTags(new SearchOptions());

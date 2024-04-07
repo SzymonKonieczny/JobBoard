@@ -112,5 +112,14 @@ namespace JobBoard.Areas.Identity.Pages.Account.Manage
             StatusMessage = "Your profile has been updated";
             return RedirectToPage();
         }
+
+        public async Task<IActionResult> OnPostDeleteAccount()
+        {
+            var usr = await _userManager.GetUserAsync(User);
+            await _signInManager.SignOutAsync();
+            await _userManager.DeleteAsync(usr);
+            return RedirectToAction("Browse","JobOffers");
+        }
+
     }
 }

@@ -1,4 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Http;
+@using System.Security.Claims
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<JobBoardAccount> userManager;
+@inject SignInManager<JobBoardAccount> signInManager;
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,6 +33,23 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="JobOffers" asp-action="Browse">Browse</a>
                         </li>
+
+                        @{
+                        if (signInManager.IsSignedIn(User))
+                        {
+                            var id = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+                            var user = await userManager.FindByIdAsync(id);
+                            var AccType = ((JobBoardAccount)user).Type;
+            
+                            if(AccType==AccountType.Employer)
+                            {
+                                 <li class="nav-item">
+                                     <a class="nav-link text-dark" asp-area="" asp-controller="JobOffers" asp-action="BrowseOwned">Browse Posed</a>
+                                 </li>
+                                }
+                            }
+                        }
+                            
                     </ul>
                 </div>
                  <partial name="_LoginPartial" />
