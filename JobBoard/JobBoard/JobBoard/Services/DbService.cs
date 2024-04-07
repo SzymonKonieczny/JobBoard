@@ -1,5 +1,5 @@
 ﻿using JobBoard.Models;
-
+using System.Linq;
 namespace JobBoard.Services
 {
     public class DbService : IDbService
@@ -41,6 +41,7 @@ namespace JobBoard.Services
             {
                 //succesful
             }
+            
 
             return tag.Id;
         }

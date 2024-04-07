@@ -27,7 +27,6 @@ namespace JobBoard.Controllers
             ViewData["Tags"] = Tags;
 
 
-
             //var TagsSelected = new List<bool>(new bool[Tags.Count]);
             //TempData["TagsSelected"] = TagsSelected;
             TempData["TagsSelected"] = new SelectList(Tags);

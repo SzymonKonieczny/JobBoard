@@ -1,9 +1,11 @@
 ﻿using JobBoard.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace JobBoard
 {
-    public class DbContextJobBoard : DbContext
+    public class DbContextJobBoard : IdentityDbContext<IdentityUser>
     {
         public DbSet<JobOffer> Offers { get; set; }
         public DbSet<Tag> Tags { get; set; }

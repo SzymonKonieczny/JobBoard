@@ -11,7 +11,9 @@ namespace JobBoard.Models
     {
         [Key]
         public int Id { get; set; }
-        public string? Name { get; set; }
+        public string Name { get; set; }
+
+        public string PasswordHashed { get; set; }
         AccountType Type { get; set; }
     }
 }
