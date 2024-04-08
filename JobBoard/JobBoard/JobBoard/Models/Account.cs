@@ -14,6 +14,11 @@ namespace JobBoard.Models
     }
     public class JobBoardAccount : IdentityUser
     {
+       public JobBoardAccount()
+        {
+            Offers = new HashSet<JobOffer>();
+        }
        public AccountType Type { get; set; }
+        public HashSet<JobOffer> Offers { get; set; }
     }
 }

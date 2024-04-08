@@ -4,6 +4,7 @@ using JobBoard;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JobBoard.Migrations
 {
     [DbContext(typeof(DbContextJobBoard))]
-    partial class DbContextJobBoardModelSnapshot : ModelSnapshot
+    [Migration("20240408112901_OfferToAccuntRelation")]
+    partial class OfferToAccuntRelation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -98,13 +101,12 @@ namespace JobBoard.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("CompanyID")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OwnedById")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -112,7 +114,7 @@ namespace JobBoard.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CompanyID");
+                    b.HasIndex("OwnedById");
 
                     b.ToTable("Offers");
                 });
@@ -280,9 +282,7 @@ namespace JobBoard.Migrations
                 {
                     b.HasOne("JobBoard.Models.JobBoardAccount", "OwnedBy")
                         .WithMany("Offers")
-                        .HasForeignKey("CompanyID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("OwnedById");
 
                     b.Navigation("OwnedBy");
                 });

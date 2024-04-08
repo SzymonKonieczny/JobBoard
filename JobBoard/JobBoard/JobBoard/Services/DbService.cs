@@ -45,13 +45,25 @@ namespace JobBoard.Services
 
             return tag.Id;
         }
-        public List<JobOffer> GetOffers(SearchOptions options)
+        public List<JobOffer> GetOffers()
         {
            return DbContext.Offers.ToList();
         }
-        public List<Tag> GetTags(SearchOptions options)
+        public List<Tag> GetTags()
         {
             return DbContext.Tags.ToList();
+
+        }
+
+        public IQueryable<JobOffer> GetOffersQueryable()
+        {
+            return DbContext.Offers.AsQueryable();
+        }
+
+        public IQueryable<Tag> GetTagsQueryable()
+        {
+            return DbContext.Tags.AsQueryable();
+
         }
     }
 }

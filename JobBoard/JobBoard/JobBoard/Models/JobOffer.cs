@@ -39,6 +39,8 @@ namespace JobBoard.Models
             Tags = new List<Tag>();
         }
 
+        public string CompanyID { get; set; }
+        public JobBoardAccount OwnedBy { get; set; }
         public List<Tag> Tags { get; set; }
     }
 }

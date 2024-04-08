@@ -13,10 +13,16 @@ namespace JobBoard.Services
     }
     public interface IDbService
     {
-        List<JobOffer> GetOffers(SearchOptions options);
+        public  List<JobOffer> GetOffers();
+
+        public IQueryable<JobOffer> GetOffersQueryable();
+
+
         public int AddTag(Tag tag);
         int AddOffer(JobOffer offer);
-        public List<Tag> GetTags(SearchOptions options);
+        public List<Tag> GetTags();
+        public IQueryable<Tag> GetTagsQueryable();
+
         DbServiceActionStatus DeleteOffer(int id);
 
     }

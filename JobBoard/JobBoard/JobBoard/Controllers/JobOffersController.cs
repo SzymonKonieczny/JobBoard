@@ -1,8 +1,11 @@
 ﻿using JobBoard.Models;
 using JobBoard.Services;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
+using System.Security.Claims;
 
 
 namespace JobBoard.Controllers
@@ -10,7 +13,12 @@ namespace JobBoard.Controllers
     public class JobOffersController : Controller
     {
         IDbService _IDbService;
-        public JobOffersController(IDbService IDbService) => _IDbService = IDbService;
+    //   private readonly SignInManager<JobBoardAccount> _signInManager;
+        private readonly UserManager<JobBoardAccount> _userManager;
+        public JobOffersController(IDbService IDbService, UserManager<JobBoardAccount> userManager) {
+                _userManager = userManager;
+            _IDbService = IDbService;
+        }
         // GET: JobOffers
         public ActionResult Index()
         {
@@ -19,31 +27,40 @@ namespace JobBoard.Controllers
 
         public ActionResult Browse()
         {
-            return View(_IDbService.GetOffers(new SearchOptions()));
+            var Offers = _IDbService.GetOffersQueryable().Include(of => of.OwnedBy).ToList();
+
+            return View(Offers);
         }
-        public ActionResult BrowseOwned()
+        public async Task<ActionResult> BrowseOwned()
         {
-            return View(_IDbService.GetOffers(new SearchOptions()));
+
+            var userID = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+            var usr =_userManager.Users.Where(u=>u.Id== userID).Include(u=>u.Offers).FirstOrDefault();
+           
+            
+            //var list = Offers
+            return View(usr.Offers.ToList());
         }
         public ActionResult Add()
         {
-            var Tags = _IDbService.GetTags(new SearchOptions());
+            var Tags = _IDbService.GetTags();
             ViewData["Tags"] = Tags;
 
 
-            //var TagsSelected = new List<bool>(new bool[Tags.Count]);
-            //TempData["TagsSelected"] = TagsSelected;
-            TempData["TagsSelected"] = new SelectList(Tags);
+            var TagsSelected = new List<bool>(new bool[Tags.Count]);
+            TempData["TagsSelected"] = TagsSelected;
+           // TempData["TagsSelected"] = new SelectList(Tags);
             return View();
         }
 
         [HttpPost]
-        public ActionResult Add(JobOffer offer)
+        public async Task<ActionResult> Add(JobOffer offer)
         {
             try
             {
                 //var TagsSelected = (List<bool>)TempData["TagsSelected"];
-                var Tags  =_IDbService.GetTags(new SearchOptions());
+                var Tags  =_IDbService.GetTags();
                 //var TagsSelected = (List<SelectList>)ViewData["tags"];
                 //
                 //offer.Tags.Clear();
@@ -56,18 +73,14 @@ namespace JobBoard.Controllers
                 //}
 
                 offer.Tags.Clear();
-                
-                var TagsSelected = (SelectList)ViewData["tags"];
-
-                foreach (Tag tag in TagsSelected.SelectedValues) 
+                var usr = await _userManager.GetUserAsync(User);
+                if(usr == null)
                 {
-                    if(Tags.FindAll(t => t.Id == tag.Id).Count > 0)
-                    {
-                        offer.Tags.Add(tag);
-                    }
+                    return RedirectToAction("Browse");
 
                 }
-
+                offer.OwnedBy = usr;
+             //usr.Offers.Add(offer);
 
                 _IDbService.AddOffer(offer);
 
@@ -116,7 +129,7 @@ namespace JobBoard.Controllers
                 // TODO: Add update logic here
 
                 return RedirectToAction("Index");
-            }
+            }   
             catch
             {
                 return View();
