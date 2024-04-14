@@ -1,8 +1,58 @@
 ﻿@{
+
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<nav class="navbar navbar-inverse">
+    <ul class="nav navbar-nav">
+        <u class="list-group-item active">
+            <h4 class="list-group-item-heading">Done</h4>
+        </u>
+        <u class="list-group-item">
+            <h4 class="list-group-item-heading">Not-Done</h4>
+        </u>
+    </ul>
+</nav>
+<div class="container">
+    <h2>Features</h2>
+    <div class="list-group">
+        <a class="list-group-item active">
+            <h4 class="list-group-item-heading">Accounts</h4>
+            <p class="list-group-item-text">---</p>
+        </a>
+        <a class="list-group-item active">
+            <h4 class="list-group-item-heading">Browse Posed</h4>
+            <p class="list-group-item-text">--</p>
+        </a>
+        <a class="list-group-item active">
+            <h4 class="list-group-item-heading">Edit Posted</h4>
+            <p class="list-group-item-text">desc</p>
+        </a>
+        <a class="list-group-item">
+            <h4 class="list-group-item-heading">Employee Applications</h4>
+            <p class="list-group-item-text">desc</p>
+        </a>    
+        <a class="list-group-item">
+            <h4 class="list-group-item-heading">Employee / Company public profile ?</h4>
+            <p class="list-group-item-text">(Maybe with a picture)</p>
+        </a>
+        <a class="list-group-item">
+            <h4 class="list-group-item-heading">PDF CVs for easy application</h4>
+            <p class="list-group-item-text"></p>
+        </a>
+
+@*         <pre>
+            @ViewData["tekst"].ToString();
+        </pre> *@
+
+@*         <a class="list-group-item">
+            <h4 class="list-group-item-heading"></h4>
+            <p class="list-group-item-text"></p>
+        </a> *@
+    </div>
 </div>

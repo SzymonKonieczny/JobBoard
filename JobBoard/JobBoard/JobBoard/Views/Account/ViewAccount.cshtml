@@ -1,0 +1,36 @@
+﻿@model JobBoard.Models.JobBoardAccount
+@{
+    ViewData["Title"] = "ViewAccount";
+}
+
+<h1>@Model.UserName</h1>
+
+<div class="row">
+    <div class="col-sm-2 text-center">
+        @if(Model.ProfilePicturePath!="")
+        {
+            string path = System.IO.Path.GetFileName(Model.ProfilePicturePath);
+            <img src="@Url.Content("~/UserFiles/"+@path)" class="img-circle"  height="155" width="155"  alt="Profile Picture">
+            //"@Url.Content(Model.ProfilePicturePath)"
+        }
+    </div>
+    <div class="col-sm-2 text-center">
+        @if (Model.ResumePath != "")
+        {
+            <a asp-action="DownloadResume" asp-route-id="@Model.Id"> Download Resume</a>
+        }
+        else {
+            <a>No Resume</a>
+        }
+    </div>
+        <br />
+    <div style="word-wrap: break-word; white-space: pre-wrap;">
+
+            @Html.DisplayFor(o => o.Description, new
+                {
+                    rows = 15,
+                    cols = 100
+                })
+        <br />
+    </div>
+</div>

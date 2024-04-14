@@ -34,6 +34,10 @@ namespace JobBoard.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -63,6 +67,14 @@ namespace JobBoard.Migrations
 
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
+
+                    b.Property<string>("ProfilePicturePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ResumePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
@@ -137,6 +149,28 @@ namespace JobBoard.Migrations
                     b.HasIndex("JobOfferId");
 
                     b.ToTable("Tags");
+                });
+
+            modelBuilder.Entity("JobBoard.Models.UserApplication", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ApplicantID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("JobOfferId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("JobOfferId");
+
+                    b.ToTable("UserApplication");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -294,6 +328,13 @@ namespace JobBoard.Migrations
                         .HasForeignKey("JobOfferId");
                 });
 
+            modelBuilder.Entity("JobBoard.Models.UserApplication", b =>
+                {
+                    b.HasOne("JobBoard.Models.JobOffer", null)
+                        .WithMany("ApplicantsIDs")
+                        .HasForeignKey("JobOfferId");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -352,6 +393,8 @@ namespace JobBoard.Migrations
 
             modelBuilder.Entity("JobBoard.Models.JobOffer", b =>
                 {
+                    b.Navigation("ApplicantsIDs");
+
                     b.Navigation("Tags");
                 });
 #pragma warning restore 612, 618

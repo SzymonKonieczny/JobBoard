@@ -7,6 +7,6 @@ namespace JobBoard.Helpers
     public class Utility
     {
 
-      
+     
     }
 }

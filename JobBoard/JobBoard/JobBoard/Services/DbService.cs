@@ -57,13 +57,32 @@ namespace JobBoard.Services
 
         public IQueryable<JobOffer> GetOffersQueryable()
         {
-            return DbContext.Offers.AsQueryable();
+            var t = DbContext.Offers.AsQueryable();
+            return t;
         }
 
         public IQueryable<Tag> GetTagsQueryable()
         {
             return DbContext.Tags.AsQueryable();
 
+        }
+
+        public DbServiceActionStatus EditOffer( JobOffer offer)
+        {
+
+            DbContext.Offers.Update(offer);
+            if (DbContext.SaveChanges() > 0)
+            {
+                return DbServiceActionStatus.Success;
+
+            }
+            return DbServiceActionStatus.Failure;
+
+        }
+
+        public void SaveChanges()
+        {
+            DbContext.SaveChanges();
         }
     }
 }

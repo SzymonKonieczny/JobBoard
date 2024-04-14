@@ -70,6 +70,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Projects on C drive Only Imortant shit/ASP Project/JobBoardSite Proj/JobBoard/JobBoard/JobBoard/JobBoard/Views/Account/ViewAccount.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxWaWV3QWNjb3VudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Projects on C drive Only Imortant shit/ASP Project/JobBoardSite Proj/JobBoard/JobBoard/JobBoard/JobBoard/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -88,6 +92,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Projects on C drive Only Imortant shit/ASP Project/JobBoardSite Proj/JobBoard/JobBoard/JobBoard/JobBoard/Views/JobOffers/BrowseOwned.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSm9iT2ZmZXJzXEJyb3dzZU93bmVkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projects on C drive Only Imortant shit/ASP Project/JobBoardSite Proj/JobBoard/JobBoard/JobBoard/JobBoard/Views/JobOffers/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSm9iT2ZmZXJzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projects on C drive Only Imortant shit/ASP Project/JobBoardSite Proj/JobBoard/JobBoard/JobBoard/JobBoard/Views/JobOffers/OfferDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSm9iT2ZmZXJzXE9mZmVyRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Projects on C drive Only Imortant shit/ASP Project/JobBoardSite Proj/JobBoard/JobBoard/JobBoard/JobBoard/Views/Shared/Error.cshtml]

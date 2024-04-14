@@ -35,9 +35,14 @@
     <tr>
         <td>
                 <h3>@item.Title</h3>
-                <h7>@((item.OwnedBy.UserName))</h7>
+                <h7> <a asp-action="ViewAccount" asp-controller="Account" asp-route-id="@item.CompanyID" >
+                        @((item.OwnedBy.UserName))
+                </a></h7>
                 <br>
                 <pre>@item.Description</pre>
+                <a asp-action="Apply" asp-controller="JobOffers" asp-route-OfferId="@item.Id">
+                    Apply!
+                </a>
             <br>
 
         </td>

@@ -13,10 +13,11 @@ namespace JobBoard.Services
     }
     public interface IDbService
     {
+        public void SaveChanges();
         public  List<JobOffer> GetOffers();
 
         public IQueryable<JobOffer> GetOffersQueryable();
-
+        public DbServiceActionStatus EditOffer( JobOffer offer);
 
         public int AddTag(Tag tag);
         int AddOffer(JobOffer offer);

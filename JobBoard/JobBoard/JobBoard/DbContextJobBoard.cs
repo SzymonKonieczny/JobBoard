@@ -17,8 +17,10 @@ namespace JobBoard
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-           // modelBuilder.Entity<JobOffer>().HasOne(c => c.CompanyID).WithMany(o => o.)
 
+
+           // modelBuilder.Entity<JobOffer>().HasMany(o => o.ApplicantsIDs)
+           //     .WithOne();
 
             modelBuilder.Entity<JobBoardAccount>().HasMany(o => o.Offers)
                 .WithOne(c => c.OwnedBy).HasForeignKey(c => c.CompanyID);

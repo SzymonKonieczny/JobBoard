@@ -3,9 +3,11 @@ using JobBoard.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 using System.Security.Claims;
+using System.Xml;
 
 
 namespace JobBoard.Controllers
@@ -13,8 +15,8 @@ namespace JobBoard.Controllers
     public class JobOffersController : Controller
     {
         IDbService _IDbService;
-    //   private readonly SignInManager<JobBoardAccount> _signInManager;
         private readonly UserManager<JobBoardAccount> _userManager;
+    //   private readonly SignInManager<JobBoardAccount> _signInManager;
         public JobOffersController(IDbService IDbService, UserManager<JobBoardAccount> userManager) {
                 _userManager = userManager;
             _IDbService = IDbService;
@@ -27,9 +29,9 @@ namespace JobBoard.Controllers
 
         public ActionResult Browse()
         {
-            var Offers = _IDbService.GetOffersQueryable().Include(of => of.OwnedBy).ToList();
-
-            return View(Offers);
+            var Offers = _IDbService.GetOffersQueryable().Include(of => of.OwnedBy);
+            var OffersL = Offers.ToList();
+            return View(OffersL);
         }
         public async Task<ActionResult> BrowseOwned()
         {
@@ -80,7 +82,6 @@ namespace JobBoard.Controllers
 
                 }
                 offer.OwnedBy = usr;
-             //usr.Offers.Add(offer);
 
                 _IDbService.AddOffer(offer);
 
@@ -92,17 +93,62 @@ namespace JobBoard.Controllers
             }
         }
 
+
         public ActionResult Delete(int id)
         {
-            DbServiceActionStatus resState = _IDbService.DeleteOffer(id);
+            var Offer = _IDbService.GetOffersQueryable().Include(o => o.OwnedBy).FirstOrDefault(o => o.Id == id);
+            if (Offer == null)
+            {
+                TempData["WasSuccess?"] = DbServiceActionStatus.Failure;
 
-            //TempData["FromDeleteAction?"] = true;
-            TempData["WasSuccess?"] = resState;
+                return RedirectToAction("Browse");
+            
+            }
+
+
+           if (Offer.OwnedBy.Id == _userManager.GetUserId(User))
+            {
+                 DbServiceActionStatus resState = _IDbService.DeleteOffer(id);
+                TempData["WasSuccess?"] = resState;
+                return RedirectToAction("Browse");
+
+            }
+
+           TempData["WasSuccess?"] = DbServiceActionStatus.Failure;
 
             return RedirectToAction("Browse");
         }
+        public async Task<ActionResult> Apply( int OfferId)
+        {
+            var Offer = _IDbService.GetOffersQueryable().Include(o => o.ApplicantsIDs).Where(o=>o.Id == OfferId).FirstOrDefault();
+            Offer.ApplicantsIDs.Add(new UserApplication(_userManager.GetUserId(User)));
+            _IDbService.SaveChanges();
+            return RedirectToAction("Browse");
+        }
+
+        public async Task<ActionResult> OfferDetails(int id)
+        {
+
+           var Offer = _IDbService.GetOffersQueryable().Where(o => o.Id == id)
+                .Include(o => o.ApplicantsIDs).FirstOrDefault();
 
 
+            var Users = await _IDbService.GetOffersQueryable().SelectMany(O => O.ApplicantsIDs)
+                .Join(_userManager.Users,
+                App => App.ApplicantID,
+                Acc => Acc.Id,
+                (App, Acc) => new AccountWithApplications
+                (
+                     App,
+                    Acc
+                )).ToListAsync();
+
+
+            ViewData["Users"] = Users;
+
+            return View(Offer);
+
+        }
 
         public ActionResult AddTags()
         {
@@ -114,26 +160,36 @@ namespace JobBoard.Controllers
             _IDbService.AddTag(new Tag("Tag6"));
             return RedirectToAction("Browse");
         }
-
+      
         public ActionResult Edit(int id)
         {
-            return View();
+            var offer = _IDbService.GetOffersQueryable().Where(o => o.Id == id).FirstOrDefault();
+
+            if (offer == null) return RedirectToAction("BrowseOwned");
+
+            var userID = _userManager.GetUserId(User);
+            
+            if(offer.CompanyID == userID) return View(offer);
+
+            else return RedirectToAction("BrowseOwned");
         }
 
-        // POST: JobOffers/Edit/5
+        
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(JobOffer offerInput)
         {
-            try
-            {
-                // TODO: Add update logic here
+            
+        var offer = _IDbService.GetOffersQueryable().Where(o=>o.Id == offerInput.Id).FirstOrDefault();
 
-                return RedirectToAction("Index");
-            }   
-            catch
-            {
-                return View();
-            }
+            offer.Title = offerInput.Title;
+            offer.Description = offerInput.Description;
+            _IDbService.EditOffer(offer);
+
+        return RedirectToAction("BrowseOwned");
+    
         }
+
+       
+
     }
 }

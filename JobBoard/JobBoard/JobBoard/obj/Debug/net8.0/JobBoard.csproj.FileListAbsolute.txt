@@ -259,3 +259,4 @@ C:\Projects on C drive Only Imortant shit\ASP Project\JobBoardSite Proj\JobBoard
 C:\Projects on C drive Only Imortant shit\ASP Project\JobBoardSite Proj\JobBoard\JobBoard\JobBoard\JobBoard\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Projects on C drive Only Imortant shit\ASP Project\JobBoardSite Proj\JobBoard\JobBoard\JobBoard\JobBoard\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 C:\Projects on C drive Only Imortant shit\ASP Project\JobBoardSite Proj\JobBoard\JobBoard\JobBoard\JobBoard\obj\Debug\net8.0\JobBoard.MvcApplicationPartsAssemblyInfo.cs
+C:\Projects on C drive Only Imortant shit\ASP Project\JobBoardSite Proj\JobBoard\JobBoard\JobBoard\JobBoard\obj\Debug\net8.0\JobBoard.sourcelink.json

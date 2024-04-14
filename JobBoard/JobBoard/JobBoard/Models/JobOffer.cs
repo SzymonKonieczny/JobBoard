@@ -21,6 +21,16 @@ namespace JobBoard.Models
     {
 
     }
+    public class UserApplication //wrapper for a string, EF doesnt like collections of primitives 	¯\_(ツ)_/¯
+    {
+        public UserApplication(string _ApplicantID) { ApplicantID = _ApplicantID; }
+        public UserApplication() { }
+
+        [Key]
+        public int Id { get; set; }
+        public  string ApplicantID { get; set; }
+
+    }
     public class JobOffer
     {
         
@@ -32,15 +42,29 @@ namespace JobBoard.Models
         public JobOffer(string s) {
             Title = s; 
             Tags = new List<Tag>();
+            ApplicantsIDs = new HashSet<UserApplication>();
+
         }
         public JobOffer()
         {
             Title = "";
             Tags = new List<Tag>();
+            ApplicantsIDs = new HashSet<UserApplication>();
+
         }
 
         public string CompanyID { get; set; }
         public JobBoardAccount OwnedBy { get; set; }
+
+       public HashSet<UserApplication> ApplicantsIDs { get; set; }
+
         public List<Tag> Tags { get; set; }
     }
+    public class AccountWithApplications
+    {
+        public AccountWithApplications(UserApplication _App, JobBoardAccount _acc) { App = _App; Acc = _acc; }
+        public  UserApplication App;
+        public  JobBoardAccount Acc;
+    }
+
 }
