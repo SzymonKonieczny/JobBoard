@@ -23,9 +23,12 @@
     <br>
 }
 
-<p>
-    @Html.ActionLink("Create a new Posting", "Add")
-</p>
+<form asp-action="Browse" method="post">
+
+    <input name="Search" type="text" />
+    <input type="submit" value="Search" class="btn btn-primary" />
+
+</form>
 <table class="table">
     <tr>
         <th></th>

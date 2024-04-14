@@ -27,9 +27,17 @@ namespace JobBoard.Controllers
             return View();
         }
 
+        [HttpGet]
         public ActionResult Browse()
         {
             var Offers = _IDbService.GetOffersQueryable().Include(of => of.OwnedBy);
+            var OffersL = Offers.ToList();
+            return View(OffersL);
+        }
+        [HttpPost]
+        public ActionResult Browse(string search)
+        {
+            var Offers = _IDbService.GetOffersQueryable().Include(of => of.OwnedBy).Where(o => o.Title.Contains(search));
             var OffersL = Offers.ToList();
             return View(OffersL);
         }

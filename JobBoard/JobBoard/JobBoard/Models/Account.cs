@@ -21,9 +21,9 @@ namespace JobBoard.Models
        public AccountType Type { get; set; }
         public HashSet<JobOffer> Offers { get; set; }
 
-        public string ResumePath { get; set; }
-        public string ProfilePicturePath { get; set; }
-        public string Description { get; set; }
+        public string? ResumePath { get; set; }
+        public string? ProfilePicturePath { get; set; }
+        public string? Description { get; set; }
 
 
     }

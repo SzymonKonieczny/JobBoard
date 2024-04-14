@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "gP67Uu82CidQO4nypGYSMkAUGGhSLibis9PZsdd9yik=",
+  "Hash": "oph97u/v9cA76OYFleRTUg27eiaHKtKaRg6wVGtwDJ4=",
   "Source": "JobBoard",
   "BasePath": "_content/JobBoard",
   "Mode": "Default",
@@ -1193,6 +1193,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Projects on C drive Only Imortant shit\\ASP Project\\JobBoardSite Proj\\JobBoard\\JobBoard\\JobBoard\\JobBoard\\wwwroot\\UserFiles\\51160d0d9ec0bd50492a12d2368a1b1f_20240414172916635.png",
+      "SourceId": "JobBoard",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Projects on C drive Only Imortant shit\\ASP Project\\JobBoardSite Proj\\JobBoard\\JobBoard\\JobBoard\\JobBoard\\wwwroot\\",
+      "BasePath": "_content/JobBoard",
+      "RelativePath": "UserFiles/51160d0d9ec0bd50492a12d2368a1b1f_20240414172916635.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\UserFiles\\51160d0d9ec0bd50492a12d2368a1b1f_20240414172916635.png"
     },
     {
       "Identity": "C:\\Projects on C drive Only Imortant shit\\ASP Project\\JobBoardSite Proj\\JobBoard\\JobBoard\\JobBoard\\JobBoard\\wwwroot\\UserFiles\\CV Szymon Konieczny_20240412192415272.pdf",

@@ -2,20 +2,22 @@
 @{
     ViewData["Title"] = "ViewAccount";
 }
-
+@inject IWebHostEnvironment _hostingEnvironment;
 <h1>@Model.UserName</h1>
 
 <div class="row">
     <div class="col-sm-2 text-center">
-        @if(Model.ProfilePicturePath!="")
+        @if (Model.ProfilePicturePath != "" && Model.ProfilePicturePath != null)
         {
             string path = System.IO.Path.GetFileName(Model.ProfilePicturePath);
-            <img src="@Url.Content("~/UserFiles/"+@path)" class="img-circle"  height="155" width="155"  alt="Profile Picture">
+            <img src="@Url.Content(System.IO.Path.Combine("~/","UserFiles",@path))" class="img-circle" height="155" width="155" alt="Profile Picture">
+            //<img src="@Url.Content(System.IO.Path.Combine(_hostingEnvironment.WebRootPath,"UserFiles",@path))" class="img-circle" height="155" width="155" alt="Profile Picture">
+            
             //"@Url.Content(Model.ProfilePicturePath)"
         }
     </div>
     <div class="col-sm-2 text-center">
-        @if (Model.ResumePath != "")
+        @if (Model.ResumePath != "" && Model.ResumePath!=null)
         {
             <a asp-action="DownloadResume" asp-route-id="@Model.Id"> Download Resume</a>
         }
