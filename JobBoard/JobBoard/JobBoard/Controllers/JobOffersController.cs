@@ -151,22 +151,21 @@ namespace JobBoard.Controllers
            var Offer = _IDbService.GetOffersQueryable().Where(o => o.Id == id)
                 .Include(o => o.ApplicantsIDs).FirstOrDefault();
 
+            if (Offer != null){
 
+            
             var Users = await _IDbService.GetOffersQueryable().SelectMany(O => O.ApplicantsIDs)
-                .Join(_userManager.Users,
-                App => App.ApplicantID,
-                Acc => Acc.Id,
-                (App, Acc) => new AccountWithApplications
-                (
-                     App,
-                    Acc
-                )).ToListAsync();
+                .Where(a => a.JobOfferId==Offer.Id)
+                .Join(_userManager.Users,ua => ua.ApplicantID,us=>us.Id, (app,usr)=> new AccountWithApplications(
+                    app,usr
+                    )).ToListAsync();
 
 
             ViewData["Users"] = Users;
 
             return View(Offer);
-
+            }
+            return RedirectToAction("Browse"); 
         }
 
 

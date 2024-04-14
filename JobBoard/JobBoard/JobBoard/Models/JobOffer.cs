@@ -21,7 +21,7 @@ namespace JobBoard.Models
     {
 
     }
-    public class UserApplication //wrapper for a string, EF doesnt like collections of primitives 	¯\_(ツ)_/¯
+    public class UserApplication 
     {
         public UserApplication(string _ApplicantID) { ApplicantID = _ApplicantID; }
         public UserApplication() { }
@@ -29,6 +29,9 @@ namespace JobBoard.Models
         [Key]
         public int Id { get; set; }
         public  string ApplicantID { get; set; }
+
+        public int JobOfferId{ get; set; }
+
 
     }
     public class JobOffer
