@@ -1,5 +1,6 @@
 ﻿using JobBoard.Models;
 using JobBoard.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.StaticFiles;
@@ -15,6 +16,8 @@ namespace JobBoard.Controllers
             _IDbService = IDbService;
             _userManager = userManager;
         }
+        [Authorize]
+
         public async Task<IActionResult> ViewAccount(string id)
         {
             var Account = await _userManager.FindByIdAsync(id);
@@ -26,6 +29,7 @@ namespace JobBoard.Controllers
 
             return View(Account);
         }
+        [Authorize]
         public async Task<IActionResult> DownloadResume(string id)
         {
             var Account = await _userManager.FindByIdAsync(id);

@@ -1,5 +1,6 @@
 ﻿using JobBoard.Models;
 using JobBoard.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -12,6 +13,7 @@ using System.Xml;
 
 namespace JobBoard.Controllers
 {
+
     public class JobOffersController : Controller
     {
         IDbService _IDbService;
@@ -24,7 +26,7 @@ namespace JobBoard.Controllers
         // GET: JobOffers
         public ActionResult Index()
         {
-            return View();
+            return Redirect("Browse");
         }
 
         [HttpGet]
@@ -41,6 +43,8 @@ namespace JobBoard.Controllers
             var OffersL = Offers.ToList();
             return View(OffersL);
         }
+        [Authorize]
+
         public async Task<ActionResult> BrowseOwned()
         {
 
@@ -52,6 +56,8 @@ namespace JobBoard.Controllers
             //var list = Offers
             return View(usr.Offers.ToList());
         }
+        [Authorize]
+
         public ActionResult Add()
         {
             var Tags = _IDbService.GetTags();
@@ -63,6 +69,7 @@ namespace JobBoard.Controllers
            // TempData["TagsSelected"] = new SelectList(Tags);
             return View();
         }
+        [Authorize]
 
         [HttpPost]
         public async Task<ActionResult> Add(JobOffer offer)
@@ -101,6 +108,7 @@ namespace JobBoard.Controllers
             }
         }
 
+        [Authorize]
 
         public ActionResult Delete(int id)
         {
@@ -126,6 +134,8 @@ namespace JobBoard.Controllers
 
             return RedirectToAction("Browse");
         }
+        [Authorize]
+
         public async Task<ActionResult> Apply( int OfferId)
         {
             var Offer = _IDbService.GetOffersQueryable().Include(o => o.ApplicantsIDs).Where(o=>o.Id == OfferId).FirstOrDefault();
@@ -133,6 +143,7 @@ namespace JobBoard.Controllers
             _IDbService.SaveChanges();
             return RedirectToAction("Browse");
         }
+        [Authorize]
 
         public async Task<ActionResult> OfferDetails(int id)
         {
@@ -158,17 +169,8 @@ namespace JobBoard.Controllers
 
         }
 
-        public ActionResult AddTags()
-        {
-            _IDbService.AddTag(new Tag("Tag1"));
-            _IDbService.AddTag(new Tag("Tag2"));
-            _IDbService.AddTag(new Tag("Tag3"));
-            _IDbService.AddTag(new Tag("Tag4"));
-            _IDbService.AddTag(new Tag("Tag5"));
-            _IDbService.AddTag(new Tag("Tag6"));
-            return RedirectToAction("Browse");
-        }
-      
+
+         [Authorize]
         public ActionResult Edit(int id)
         {
             var offer = _IDbService.GetOffersQueryable().Where(o => o.Id == id).FirstOrDefault();
@@ -182,7 +184,7 @@ namespace JobBoard.Controllers
             else return RedirectToAction("BrowseOwned");
         }
 
-        
+        [Authorize]
         [HttpPost]
         public ActionResult Edit(JobOffer offerInput)
         {

@@ -12,8 +12,11 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using JobBoard.Helpers;
+using Microsoft.AspNetCore.Authorization;
 namespace JobBoard.Areas.Identity.Pages.Account.Manage
 {
+    [Authorize]
+
     public class IndexModel : PageModel
     {
         private readonly UserManager<JobBoardAccount> _userManager;
@@ -169,6 +172,7 @@ namespace JobBoard.Areas.Identity.Pages.Account.Manage
             StatusMessage = "Your profile has been updated";
             return RedirectToPage();
         }
+        [Authorize]
 
         public async Task<IActionResult> OnPostDeleteAccount()
         {
