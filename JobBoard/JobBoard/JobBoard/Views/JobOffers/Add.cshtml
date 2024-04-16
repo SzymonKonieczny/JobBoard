@@ -4,9 +4,9 @@
     ViewData["Title"] = "Add";
 }
 
-<h1>Add</h1>
 
-<h4>JobOffer</h4>
+
+<h4>Add a new Job Offer</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -21,7 +21,7 @@
                     <br>
                     <span>Descripton:</span> @Html.TextAreaFor(x => x.Description,10,150,new {})
                     <br>
-                    <span>Tags (Not functional yet) </span>
+  @*                   <span>Tags (Not functional yet) </span>
                     <br>
                     <!--Html.ListBox()-->
                         
@@ -35,7 +35,7 @@
 
                     }
                     </tr>
-                    <br />
+                    <br /> *@
                     <input type="submit" value="Create" class="btn btn-primary" />
 
                 }

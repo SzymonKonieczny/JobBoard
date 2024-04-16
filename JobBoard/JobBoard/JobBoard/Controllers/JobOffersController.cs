@@ -41,6 +41,8 @@ namespace JobBoard.Controllers
         {
             var Offers = _IDbService.GetOffersQueryable().Include(of => of.OwnedBy).Where(o => o.Title.Contains(search));
             var OffersL = Offers.ToList();
+
+
             return View(OffersL);
         }
         [Authorize]
@@ -64,8 +66,8 @@ namespace JobBoard.Controllers
             ViewData["Tags"] = Tags;
 
 
-            var TagsSelected = new List<bool>(new bool[Tags.Count]);
-            TempData["TagsSelected"] = TagsSelected;
+          //  var TagsSelected = new List<bool>(new bool[Tags.Count]);
+         //   TempData["TagsSelected"] = TagsSelected;
            // TempData["TagsSelected"] = new SelectList(Tags);
             return View();
         }
@@ -93,24 +95,29 @@ namespace JobBoard.Controllers
                 var usr = await _userManager.GetUserAsync(User);
                 if(usr == null)
                 {
+                    TempData["WasSuccess?"] = DbServiceActionStatus.Failure;
+
                     return RedirectToAction("Browse");
 
                 }
                 offer.OwnedBy = usr;
 
                 _IDbService.AddOffer(offer);
+                TempData["WasSuccess?"] = DbServiceActionStatus.Success;
 
                 return RedirectToAction("Browse");
             }
             catch
             {
+                TempData["WasSuccess?"] = DbServiceActionStatus.Failure;
+
                 return View();
             }
         }
 
         [Authorize]
 
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> Delete(int id)
         {
             var Offer = _IDbService.GetOffersQueryable().Include(o => o.OwnedBy).FirstOrDefault(o => o.Id == id);
             if (Offer == null)
@@ -120,9 +127,14 @@ namespace JobBoard.Controllers
                 return RedirectToAction("Browse");
             
             }
+            bool isAdmin = false;
+            var user = await _userManager.GetUserAsync(User);
+            if (user != null)
+            {
+                isAdmin = user.Email == "admin@admin.com";
+            }
 
-
-           if (Offer.OwnedBy.Id == _userManager.GetUserId(User))
+            if (Offer.OwnedBy.Id == _userManager.GetUserId(User) || isAdmin)
             {
                  DbServiceActionStatus resState = _IDbService.DeleteOffer(id);
                 TempData["WasSuccess?"] = resState;
@@ -138,9 +150,22 @@ namespace JobBoard.Controllers
 
         public async Task<ActionResult> Apply( int OfferId)
         {
-            var Offer = _IDbService.GetOffersQueryable().Include(o => o.ApplicantsIDs).Where(o=>o.Id == OfferId).FirstOrDefault();
-            Offer.ApplicantsIDs.Add(new UserApplication(_userManager.GetUserId(User)));
-            _IDbService.SaveChanges();
+            try
+            {
+                var Offer = _IDbService.GetOffersQueryable().Include(o => o.ApplicantsIDs).Where(o=>o.Id == OfferId).FirstOrDefault();
+                Offer.ApplicantsIDs.Add(new UserApplication(_userManager.GetUserId(User)));
+                _IDbService.SaveChanges();
+            }
+            catch
+            {
+                TempData["WasSuccess?"] = DbServiceActionStatus.Failure;
+                return RedirectToAction("Browse");
+
+            }
+
+
+            TempData["WasSuccess?"] = DbServiceActionStatus.Success;
+
             return RedirectToAction("Browse");
         }
         [Authorize]

@@ -1,25 +1,33 @@
-﻿@model IEnumerable<JobBoard.Models.JobOffer>
-
+﻿@using Microsoft.AspNetCore.Identity
+@model IEnumerable<JobBoard.Models.JobOffer>
+@inject UserManager<JobBoardAccount> _userManager;
 @{
     ViewBag.Title = "Browse";
+
+    bool isAdmin = false;
+    var user= await _userManager.GetUserAsync(User);
+    if (user != null)
+    {
+        isAdmin= user.Email == "admin@admin.com";
+    }
 }
 
-<h2>Browse</h2>
+<h2>Browse Job Offers</h2>
 
 @if (Html.TempData["WasSuccess?"] != null)
 {
     <br>
-     @switch (Html.TempData["WasSuccess?"])
-        {
-            case 0:
-                <h3>Success</h3>
-                break;
+    @switch (Html.TempData["WasSuccess?"])
+    {
+        case 0:
+            <h3>Success</h3>
+            break;
 
-            case 1:
-                <h3>Failed</h3>
-                break;
-        }
-  
+        case 1:
+            <h3>Failed</h3>
+            break;
+    }
+
     <br>
 }
 
@@ -46,6 +54,11 @@
                 <a asp-action="Apply" asp-controller="JobOffers" asp-route-OfferId="@item.Id">
                     Apply!
                 </a>
+                 | 
+                @if(isAdmin)
+                {
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                }
             <br>
 
         </td>
