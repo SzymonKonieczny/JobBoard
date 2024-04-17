@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 using Microsoft.AspNetCore.Identity;
 using JobBoard.Models;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("JobBoardContextConnection") ?? throw new InvalidOperationException("Connection string 'JobBoardContextConnection' not found.");
@@ -16,7 +17,9 @@ builder.Services.AddScoped<IDbService,DbService>();
 
 builder.Services.AddDbContext<DbContextJobBoard>( builder =>
 {
-    builder.UseSqlServer(@"Server=(localdb)\JobBoard;Database=JobBoard;Trusted_Connection=True");
+builder.UseSqlServer(@"Data Source = mssql.webio.pl,2401;Database=kowlad_JobBoardApp;Uid=kowlad_DatabaseUser;Password=Szymonko111#;trustservercertificate=true");
+    //Data Source = mssql.webio.pl,2401; Initial Catalog = DbTest; Integrated Security = True
+    //builder.UseSqlServer(@"Server=(localdb)\JobBoard;Database=JobBoard;Trusted_Connection=True");
 });
 
 builder.Services.AddDefaultIdentity<JobBoardAccount>(options => {

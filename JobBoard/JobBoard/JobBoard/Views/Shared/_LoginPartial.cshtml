@@ -8,7 +8,8 @@
 {
         <li class="nav-item">
             <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
-                Hello @{
+                @{
+                    string ManageText = "";
                     // Retrieve the user's ID from the ClaimsPrincipal
                     var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
@@ -18,11 +19,13 @@
                     // If the user is found, you can cast it to your custom UserIdentity class
                     if (user != null)
                     {
+
                         var userIdentity = (JobBoardAccount)user;
-                        <a>@user.UserName</a>
+                        ManageText += "Manage Profile " + @user.UserName;
                         // Now you have access to properties and methods of the UserIdentity object
                     }
             }
+            @ManageText
         !</a>
     </li>
     <li class="nav-item">
